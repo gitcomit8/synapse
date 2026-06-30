@@ -1,0 +1,37 @@
+graph TD
+    subgraph "Clients (React Native)"
+        Web[React Native Web]
+        iOS[React Native iOS]
+        Android[React Native Android]
+    end
+
+    subgraph "Network / Edge"
+        CF[Cloudflare CDN]
+    end
+
+    subgraph "Backend (GCP e2-micro)"
+        Nginx[Nginx Reverse Proxy]
+        Axum[Axum Server]
+    end
+
+    subgraph "Data & Services"
+        Redis[(Upstash Redis)]
+        DB[(Supabase Postgres)]
+        R2[Cloudflare R2 Storage]
+        Firebase[Firebase Auth/FCM]
+    end
+
+    Web --> CF
+    iOS --> CF
+    Android --> CF
+    CF --> Nginx
+    Nginx --> Axum
+
+    Axum --> Redis
+    Redis --> Axum
+    Axum --> DB
+    DB --> Axum
+    Axum --> R2
+    R2 --> Axum
+    Axum --> Firebase
+    Firebase --> Axum

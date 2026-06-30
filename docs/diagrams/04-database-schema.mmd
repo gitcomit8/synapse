@@ -1,0 +1,57 @@
+erDiagram
+    USERS ||--o{ WORKSPACES : creates
+    USERS ||--o{ WORKSPACE_MEMBERS : joins
+    USERS ||--o{ MESSAGES : sends
+    USERS ||--o{ BOARD_POSTS : authors
+
+    WORKSPACES ||--o{ WORKSPACE_MEMBERS : contains
+    WORKSPACES ||--o{ CHANNELS : contains
+
+    CHANNELS ||--o{ MESSAGES : contains
+    CHANNELS ||--o{ BOARD_POSTS : contains
+
+    MESSAGES ||--o{ MESSAGES : replies_to
+
+    USERS ||--o{ BOARD_ACK : acknowledges
+
+    USERS {
+        uuid id PK
+        text phone UK
+        text display_name
+        text avatar_url
+    }
+
+    WORKSPACES {
+        uuid id PK
+        text name
+        text slug
+    }
+
+    CHANNELS {
+        uuid id PK
+        uuid workspace_id FK
+        text name
+        text type
+    }
+
+    MESSAGES {
+        uuid id PK
+        uuid channel_id FK
+        uuid sender_id FK
+        text content
+        text media_url
+    }
+
+    BOARD_POSTS {
+        uuid id PK
+        uuid channel_id FK
+        uuid author_id FK
+        text title
+        text body
+    }
+
+    BOARD_ACK {
+        uuid post_id FK
+        uuid user_id FK
+        timestamp acked_at
+    }

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Client as React Native App
+    participant Server as Axum Server
+    participant R2 as Cloudflare R2
+
+    Client->>Server: POST /api/media/upload (multipart)
+    Server->>Server: Validate file (type, size)
+    Server->>R2: Upload with service credentials
+    R2-->>Server: 200 OK (Object Key)
+    Server-->>Client: Return { object_key, url }
+
+    Client->>Server: POST /api/messages (with url)
+    Server->>DB: Save Message + Object Key
