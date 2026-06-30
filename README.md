@@ -35,6 +35,12 @@ src/
 - `POST /api/v1/auth/verify-otp` - Verify OTP and get tokens
 - `GET /api/v1/auth/me` - Get current user
 
+## Docs
+
+- `docs/specs/` — Feature matrix, roadmap, development plan, API specs
+- `docs/standards/` — Engineering standards, API design guidelines
+- `docs/diagrams/` — Architecture diagrams, DB schema
+
 ## Tech Stack
 
 - **Language:** Rust (stable)

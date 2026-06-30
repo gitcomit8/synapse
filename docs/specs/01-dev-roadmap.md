@@ -1,6 +1,6 @@
 # Synapse Development Roadmap
 
-**See also:** [DEVELOPMENT-PLAN.md](./DEVELOPMENT-PLAN.md) — granular task breakdown with decisions log.
+**See also:** [02-development-plan.md](./02-development-plan.md) — granular task breakdown with decisions log.
 
 ## Phase 1: Foundation & Infrastructure (Weeks 1–2)
 **Goal:** Establish the environment, CI/CD, and database schema.
