@@ -38,3 +38,8 @@ docker-compose.override.yml
 # TestFlight
 *.ipa
 *.apk
+
+
+# Added by cargo
+
+/target
